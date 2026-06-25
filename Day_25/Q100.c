@@ -1,0 +1,39 @@
+// WAP to sort words by length 
+
+#include<stdio.h>
+#include<string.h>
+int main () {
+    char word[100][100], temp[200] ;
+    int n, i, j ;
+
+    printf("Enter no. of words : ");
+    scanf("%d",&n);
+    getchar() ;
+
+    printf("Enter words : \n");
+    for(i=0 ; i<n ; i++)
+    {
+        gets(word[i]);
+    }
+
+    for(i=0 ; i<n-1 ; i++)
+    {
+        for(j=1+i ; j<n ; j++)
+        {
+            if( strlen(word[i]) > strlen(word[j]))
+            {
+                strcpy(temp,word[i]);
+                strcpy(word[i],word[j]);
+                strcpy(word[j],temp);
+
+            }
+        }
+    }
+    printf("words sorted by length : \n");
+    for(i=0 ; i<n ; i++)
+    {
+        printf("%s\n",word[i]);
+    }
+
+    return 0 ;
+}
